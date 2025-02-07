@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import HiredLogo from "../../public/HiredLogo.png";
+import HiredLogo from "/HiredLogo.png";
 import { Button } from "./ui/Button";
 import {
   SignedIn,
