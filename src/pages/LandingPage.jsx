@@ -1,20 +1,20 @@
 import React from "react";
 import HiredLogo from "/HiredLogo.png";
 import HiredBanner from "/HiredBanner.png";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/Carousel";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/Accordion";
+} from "@/components/ui/accordion";
 import Autoplay from "embla-carousel-autoplay";
 import companies from "../data/companies.json";
 import faqs from "../data/faq.json";
