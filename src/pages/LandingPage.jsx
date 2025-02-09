@@ -7,19 +7,14 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-} from "../components/ui/Carousel";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "../components/ui/Card";
+} from "@/components/ui/Carousel";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../components/ui/Accordion";
+} from "@/components/ui/Accordion";
 import Autoplay from "embla-carousel-autoplay";
 import companies from "../data/companies.json";
 import faqs from "../data/faq.json";
