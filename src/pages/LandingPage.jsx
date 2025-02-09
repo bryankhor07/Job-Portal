@@ -32,9 +32,9 @@ const LandingPage = () => {
           className="flex flex-col items-center justify-center gradient-title text-4xl 
         font-extrabold sm:text-6xl lg:text-8xl tracking-tighter py-4"
         >
-          Find Your Dream Job{" "}
+          Discover Your Dream Job{" "}
           <span className="flex items-center gap-2 lg:gap-6">
-            and get{" "}
+            and Get{" "}
             <img
               src={HiredLogo}
               alt="Hired Logo"
