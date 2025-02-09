@@ -31,37 +31,37 @@ export async function applyToJob(token, _, jobData) {
     throw new Error("Error submitting Application");
   }
 
-  return data;
+  return data; // Return inserted data
 }
 
 // - Edit Application Status ( recruiter )
 export async function updateApplicationStatus(token, { job_id }, status) {
-  const supabase = await supabaseClient(token);
+  const supabase = await supabaseClient(token); // Get supabase client instance
   const { data, error } = await supabase
     .from("applications")
     .update({ status })
     .eq("job_id", job_id)
-    .select();
+    .select(); // Update application status
 
   if (error || data.length === 0) {
     console.error("Error Updating Application Status:", error);
     return null;
-  }
+  } // Throw error if update fails
 
-  return data;
+  return data; // Return updated data
 }
 
 export async function getApplications(token, { user_id }) {
-  const supabase = await supabaseClient(token);
+  const supabase = await supabaseClient(token); // Get supabase client instance
   const { data, error } = await supabase
     .from("applications")
     .select("*, job:jobs(title, company:companies(name))")
-    .eq("candidate_id", user_id);
+    .eq("candidate_id", user_id); // Fetch applications data for candidate
 
   if (error) {
     console.error("Error fetching Applications:", error);
     return null;
-  }
+  } // Throw error if fetch fails
 
-  return data;
+  return data; // Return fetched data
 }

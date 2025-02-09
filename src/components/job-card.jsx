@@ -20,19 +20,19 @@ const JobCard = ({
   onJobAction = () => {},
   isMyJob = false,
 }) => {
-  const [saved, setSaved] = useState(savedInit);
+  const [saved, setSaved] = useState(savedInit); // State for saved job
 
-  const { user } = useUser();
+  const { user } = useUser(); // Get user details from Clerk
 
   const { loading: loadingDeleteJob, fn: fnDeleteJob } = useFetch(deleteJob, {
     job_id: job.id,
-  });
+  }); // Fetch hook for deleting a job
 
   const {
     loading: loadingSavedJob,
     data: savedJob,
     fn: fnSavedJob,
-  } = useFetch(saveJob);
+  } = useFetch(saveJob); // Fetch hook for saving a job
 
   const handleSaveJob = async () => {
     await fnSavedJob({
@@ -40,16 +40,16 @@ const JobCard = ({
       job_id: job.id,
     });
     onJobAction();
-  };
+  }; // Save job action
 
   const handleDeleteJob = async () => {
     await fnDeleteJob();
     onJobAction();
-  };
+  }; // Delete job action
 
   useEffect(() => {
     if (savedJob !== undefined) setSaved(savedJob?.length > 0);
-  }, [savedJob]);
+  }, [savedJob]); // Update saved state on save job
 
   return (
     <Card className="flex flex-col">

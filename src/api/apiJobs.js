@@ -31,17 +31,17 @@ export async function getJobs(token, { location, company_id, searchQuery }) {
 
 // Read Saved Jobs
 export async function getSavedJobs(token) {
-  const supabase = await supabaseClient(token);
+  const supabase = await supabaseClient(token); // Supabase client instance
   const { data, error } = await supabase
     .from("saved_jobs")
-    .select("*, job: jobs(*, company: companies(name,logo_url))");
+    .select("*, job: jobs(*, company: companies(name,logo_url))"); // Fetch saved jobs data
 
   if (error) {
     console.error("Error fetching Saved Jobs:", error);
     return null;
-  }
+  } // Throw error if fetch fails
 
-  return data;
+  return data; // Return fetched data
 }
 
 // - Add / Remove Saved Job
@@ -117,52 +117,52 @@ export async function updateHiringStatus(token, { job_id }, isOpen) {
 
 // get my created jobs
 export async function getMyJobs(token, { recruiter_id }) {
-  const supabase = await supabaseClient(token);
+  const supabase = await supabaseClient(token); // Supabase client instance
 
   const { data, error } = await supabase
     .from("jobs")
     .select("*, company: companies(name,logo_url)")
-    .eq("recruiter_id", recruiter_id);
+    .eq("recruiter_id", recruiter_id); // Fetch jobs data for recruiter
 
   if (error) {
     console.error("Error fetching Jobs:", error);
     return null;
-  }
+  } // Throw error if fetch fails
 
-  return data;
+  return data; // Return fetched data
 }
 
 // Delete job
 export async function deleteJob(token, { job_id }) {
-  const supabase = await supabaseClient(token);
+  const supabase = await supabaseClient(token); // Supabase client instance
 
   const { data, error: deleteError } = await supabase
     .from("jobs")
     .delete()
     .eq("id", job_id)
-    .select();
+    .select(); // Delete job data
 
   if (deleteError) {
     console.error("Error deleting job:", deleteError);
     return data;
-  }
+  } // Throw error if delete fails
 
-  return data;
+  return data; // Return deleted data
 }
 
 // - post job
 export async function addNewJob(token, _, jobData) {
-  const supabase = await supabaseClient(token);
+  const supabase = await supabaseClient(token); // Supabase client instance
 
   const { data, error } = await supabase
     .from("jobs")
     .insert([jobData])
-    .select();
+    .select(); // Insert job data to jobs table
 
   if (error) {
     console.error(error);
     throw new Error("Error Creating Job");
-  }
+  } // Throw error if insert fails
 
-  return data;
+  return data; // Return inserted data
 }

@@ -23,18 +23,18 @@ const ApplicationCard = ({ application, isCandidate = false }) => {
     link.href = application?.resume;
     link.target = "_blank";
     link.click();
-  };
+  }; // Download resume on click for candidate only
 
   const { loading: loadingHiringStatus, fn: fnHiringStatus } = useFetch(
     updateApplicationStatus,
     {
       job_id: application.job_id,
     }
-  );
+  ); // Fetch hiring status for recruiter only
 
   const handleStatusChange = (status) => {
     fnHiringStatus(status).then(() => fnHiringStatus());
-  };
+  }; // Update hiring status for recruiter only
 
   return (
     <Card>
