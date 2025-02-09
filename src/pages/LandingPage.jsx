@@ -1,7 +1,7 @@
 import React from "react";
 import HiredLogo from "/HiredLogo.png";
 import HiredBanner from "/HiredBanner.png";
-import { Button } from "../components/ui/Button";
+import { Button } from "@/components/ui/Button";
 import { Link } from "react-router-dom";
 import {
   Carousel,
